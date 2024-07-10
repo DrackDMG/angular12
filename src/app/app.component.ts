@@ -8,5 +8,12 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "angular12";
 
+  printData(event: any) {
+    console.log("Data from app component", event);
+  }
+  printData2(event: any) {
+    console.log("Data from app component", event);
+  }
+
   constructor() {}
 }

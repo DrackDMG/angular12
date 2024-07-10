@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-component2',
-  templateUrl: './component2.component.html',
-  styleUrls: ['./component2.component.scss']
+  selector: "app-component2",
+  templateUrl: "./component2.component.html",
+  styleUrls: ["./component2.component.scss"],
 })
-export class Component2Component implements OnInit {
+export class Component2Component {
+  @Input() name: string = "";
+  @Input() lastName: string = "";
 
-  constructor() { }
+  @Output() showData2 = new EventEmitter();
 
-  ngOnInit(): void {
+  showDataE(event: any) {
+    this.showData2.emit("General Data" + this.name + " " + this.lastName);
   }
 
+  constructor() {}
 }
