@@ -70,6 +70,10 @@ export class AppComponent {
     const array15 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].join("-");
     console.log(array15); //1-2-3-4-5-6-7-8-9-10
 
+    //El split() método divide un objeto de tipo String en un array (vector) de cadenas mediante la separación de la cadena en subcadenas.
+    const array15_1 = "1-2-3-4-5-6-7-8-9-10".split("-");
+    console.log(array15_1); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     //El slice() método devuelve una copia de una parte de una matriz dentro de un nuevo arreglo comenzando desde inicio hasta fin (fin no incluido).
     const array16 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].slice(2, 5);
     console.log(array16); //[3, 4, 5]
@@ -110,5 +114,56 @@ export class AppComponent {
     //El copyWithin() método copia parte de una matriz a otra ubicación en la misma matriz y la sobrescribe sin cambiar su longitud.
     const array24 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     console.log(array24.copyWithin(0, 2, 5)); //[3, 4, 5, 4, 5, 6, 7, 8, 9, 10]
+
+    //el Object.keys() método devuelve un array de las propiedades names de un objeto, en el mismo orden como se obtienen en un loop normal.
+    const object = { a: 1, b: 2, c: 3 };
+    console.log(Object.keys(object)); //["a", "b", "c"]
+
+    //El Object.values() método devuelve un array con los valores correspondientes a las propiedades enumerables de un objeto.
+    console.log(Object.values(object)); //[1, 2, 3]
+
+    //El Object.entries() método devuelve un array de pares [clave, valor] de una propiedad enumerable de un objeto.
+    console.log(Object.entries(object)); //[["a", 1], ["b", 2], ["c", 3]]
+
+    //Spread Operator
+    const array25 = [1, 2, 3, 4, 5];
+    const array26 = [6, 7, 8, 9, 10];
+    const array27 = [...array25, ...array26];
+    console.log(array27); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const object2 = { a: 1, b: 2, c: 3 };
+    const object3 = { d: 4, e: 5, f: 6, ...object2 };
+    console.log(object3); //{d: 4, e: 5, f: 6, a: 1, b: 2, c: 3}
+
+    //Desestructuración
+    const array28 = [1, 2, 3, 4, 5];
+    const [a, b, c, d, e] = array28;
+    console.log(a); //1
+
+    const object4 = { a: 1, b: 2, c: 3 };
+    const { a: x, b: y, c: z } = object4;
+    console.log(x); //1
+
+    const object5 = { name: "John", age: 30, city: "New York" };
+    const { name: nombre } = object5;
+    console.log(nombre); //John
+
+    //Ejercicio 1 - {1: "a", 2: "a", 3: "a", 4: "a", 5: "a", 6: "a"} convertir a Array y sumar todos los pares
+    const object6 = { 1: "a", 2: "a", 3: "a", 4: "a", 5: "a", 6: "a" };
+    const array29 = Object.keys(object6);
+    const suma = array29
+      .map((i) => parseInt(i))
+      .filter((i) => i % 2 === 0)
+      .reduce((acc, i) => acc + i);
+    console.log(suma); //12
+    const suma2 = Object.keys(object6)
+      .map((i) => parseInt(i))
+      .reduce((acc, i) => (i % 2 === 0 ? acc + i : acc), 0);
+    console.log(suma2); //12
+
+    //Ejercicio 2 - [1, 2, 3, 4, 5, 6] filtrar los pares y mostrarlos como cadena
+    const array30 = [1, 2, 3, 4, 5, 6];
+    const array31 = array30.filter((i) => i % 2 === 0);
+    const cadena = array31.join("-");
+    console.log(cadena); //2-4-6
   }
 }
