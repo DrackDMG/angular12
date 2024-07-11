@@ -11,7 +11,10 @@
     ></app-component2>
   </div>
 
-  <div style="border-style: solid; border-color: brown;">
+  <div
+    *ngIf='title !== "123"'
+    style="border-style: solid; border-color: brown;"
+  >
     <app-componet3 [name]="title"> </app-componet3>
   </div>
   <input type="text" [(ngModel)]="title" />
