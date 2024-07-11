@@ -27,6 +27,14 @@ export class Componet3Component
     AfterContentChecked,
     AfterViewInit,
     AfterViewChecked {
+  ngifPreueba: boolean = true;
+  color: string = "red";
+
+  alumons = [
+    { id: 1, name: "Juan", age: 20 },
+    { id: 2, name: "Pedro", age: 30 },
+    { id: 3, name: "Maria", age: 40 },
+  ];
   @Input() name: string = "123";
 
   constructor() {
@@ -55,5 +63,16 @@ export class Componet3Component
   }
   ngOnDestroy(): void {
     console.log("ngOnDestroy inicio");
+  }
+
+  addAlumon() {
+    this.alumons.push({
+      id: this.alumons.length + 1,
+      name: "Nuevo",
+      age: 20,
+    });
+  }
+  borrarAlumno(id: number) {
+    this.alumons = this.alumons.filter((alumon) => alumon.id !== id);
   }
 }

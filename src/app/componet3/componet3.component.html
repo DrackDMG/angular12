@@ -1,3 +1,23 @@
 <p>comp3</p>
 <input type="text" [(ngModel)]="name" />
-<button>123</button>
+<div *ngIf="ngifPreueba">
+  <p>directiva if verdadera</p>
+</div>
+<button (click)="ngifPreueba = !ngifPreueba">ngIf</button>
+<div>
+  <ul>
+    <li *ngFor="let item of alumons;">
+      {{ item.id + item.name + " edad " + item.age }}
+      <button (click)="borrarAlumno(item.id)">borrar</button>
+    </li>
+  </ul>
+</div>
+<div>
+  <button (click)="addAlumon()">Agregar Alumno</button>
+</div>
+<input type="text" [(ngModel)]="color" />
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'red'">red</p>
+  <p *ngSwitchCase="'blue'">blue</p>
+  <p *ngSwitchDefault>Default</p>
+</div>
