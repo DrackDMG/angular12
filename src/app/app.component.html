@@ -1,8 +1,18 @@
-<app-component [status]="title" (sendData)="printData($event)"></app-component>
-<div style="border-style: solid; border-color: black;">
-  <app-component2
-    name="Ricardo"
-    lastName="Garcia"
-    (showData2)="printData2($event)"
-  ></app-component2>
+<div style="border-style: solid; border-color: blue;">
+  <app-component
+    [status]="title"
+    (sendData)="printData($event)"
+  ></app-component>
+  <div style="border-style: solid; border-color: red;">
+    <app-component2
+      name="Ricardo"
+      lastName="Garcia"
+      (showData2)="printData2($event)"
+    ></app-component2>
+  </div>
+
+  <div style="border-style: solid; border-color: brown;">
+    <app-componet3 [name]="title"> </app-componet3>
+  </div>
+  <input type="text" [(ngModel)]="title" />
 </div>
