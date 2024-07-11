@@ -1,4 +1,8 @@
 import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   DoCheck,
   Input,
@@ -14,13 +18,20 @@ import {
   styleUrls: ["./componet3.component.scss"],
 })
 export class Componet3Component
-  implements OnInit, OnChanges, DoCheck, OnDestroy {
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    OnDestroy,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked {
   @Input() name: string = "123";
 
   constructor() {
     console.log("Constructor inicio");
   }
-
   ngOnChanges(changes: SimpleChanges): void {
     console.log("ngOnChanges inicio", changes);
   }
@@ -29,6 +40,18 @@ export class Componet3Component
   }
   ngDoCheck(): void {
     console.log("ngDoCheck inicio");
+  }
+  ngAfterContentInit(): void {
+    console.log("ngAfterContentInit inicio");
+  }
+  ngAfterContentChecked(): void {
+    console.log("ngAfterContentChecked inicio");
+  }
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit inicio");
+  }
+  ngAfterViewChecked(): void {
+    console.log("ngAfterViewChecked inicio");
   }
   ngOnDestroy(): void {
     console.log("ngOnDestroy inicio");
