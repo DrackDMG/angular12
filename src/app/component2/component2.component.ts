@@ -6,6 +6,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
   styleUrls: ["./component2.component.scss"],
 })
 export class Component2Component {
+  title: string = "Componente 2";
+  var1: number = 1;
+  var2: number = 2;
+  result: number = 0;
+
   @Input() name: string = "";
   @Input() lastName: string = "";
 
@@ -13,6 +18,8 @@ export class Component2Component {
 
   showDataE(event: any) {
     this.showData2.emit("General Data" + this.name + " " + this.lastName);
+    this.title = "Componente 2 - " + this.name + " " + this.lastName;
+    this.result = parseInt(this.var1) + this.var2;
   }
 
   constructor() {}
