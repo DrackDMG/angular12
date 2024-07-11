@@ -7,8 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 })
 export class Component2Component {
   title: string = "Componente 2";
-  var1: number = 1;
-  var2: number = 2;
+  var1: number = 0;
+  var2: number = 0;
   result: number = 0;
 
   @Input() name: string = "";
@@ -19,7 +19,11 @@ export class Component2Component {
   showDataE(event: any) {
     this.showData2.emit("General Data" + this.name + " " + this.lastName);
     this.title = "Componente 2 - " + this.name + " " + this.lastName;
-    this.result = parseInt(this.var1) + this.var2;
+    this.result = this.var1 + this.var2;
+  }
+
+  suma() {
+    this.result = this.var1 + this.var2;
   }
 
   constructor() {}

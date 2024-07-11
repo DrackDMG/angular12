@@ -1,8 +1,8 @@
 <h1>Componente 2</h1>
 <p>Titulo {{ title }}</p>
-<p>suma: {{ result }}</p>
+<p>{{ var1 }} + {{ var2 }} = {{ result }}</p>
 
-<input type="number" [(ngModel)]="var1" />
-<input type="number" [(ngModel)]="var2" />
+<input type="number" [(ngModel)]="var1" (ngModelChange)="suma()" />
+<input type="number" [(ngModel)]="var2" (ngModelChange)="suma()" />
 
 <button (click)="showDataE($event)">show data</button>
