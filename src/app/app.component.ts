@@ -60,4 +60,8 @@ export class AppComponent {
       console.log("Se ha desuscripto");
     }
   }
+
+  test(event: any) {
+    console.log("Data from app component", event);
+  }
 }

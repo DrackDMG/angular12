@@ -6,9 +6,10 @@ import { ComponentComponent } from "./component/component.component";
 import { Component2Component } from "./component2/component2.component";
 import { FormsModule } from "@angular/forms";
 import { Componet3Component } from './componet3/componet3.component';
+import { Directive1Directive } from './directive1.directive';
 
 @NgModule({
-  declarations: [AppComponent, ComponentComponent, Component2Component, Componet3Component],
+  declarations: [AppComponent, ComponentComponent, Component2Component, Componet3Component, Directive1Directive],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
