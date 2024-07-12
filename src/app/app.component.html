@@ -1,4 +1,5 @@
 <div style="border-style: solid; border-color: blue;">
+  <h1>Componente App</h1>
   <app-component
     [status]="title"
     (sendData)="printData($event)"
@@ -15,7 +16,9 @@
     *ngIf='title !== "123"'
     style="border-style: solid; border-color: brown;"
   >
-    <app-componet3 [name]="title"> </app-componet3>
+    <app-componet3 [name]="title">
+      <p>contenido dentro del app-component3 y mostrado por el ng-contend</p>
+    </app-componet3>
   </div>
   <input type="text" [(ngModel)]="title" />
 </div>

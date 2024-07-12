@@ -1,8 +1,20 @@
-<p>comp3</p>
+<h1>Componente 3</h1>
+<ng-content #name></ng-content>
+
 <input type="text" [(ngModel)]="name" />
-<div *ngIf="ngifPreueba">
+<div *ngIf="ngifPreueba else elseP">
   <p>directiva if verdadera</p>
 </div>
+<ng-container *ngIf="ngifPreueba else elseP">
+  <p>
+    directiva if verdadera con ng-contarner en lugar de un div asi no genera
+    html en el dom
+  </p>
+</ng-container>
+
+<ng-template #elseP>
+  <p>es un template else por falso</p>
+</ng-template>
 <button (click)="ngifPreueba = !ngifPreueba">ngIf</button>
 <div>
   <ul>
