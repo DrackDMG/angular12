@@ -17,16 +17,7 @@ import {
   templateUrl: "./componet3.component.html",
   styleUrls: ["./componet3.component.scss"],
 })
-export class Componet3Component
-  implements
-    OnInit,
-    OnChanges,
-    DoCheck,
-    OnDestroy,
-    AfterContentInit,
-    AfterContentChecked,
-    AfterViewInit,
-    AfterViewChecked {
+export class Componet3Component {
   ngifPreueba: boolean = true;
   color: string = "red";
 
@@ -37,33 +28,7 @@ export class Componet3Component
   ];
   @Input() name: string = "123";
 
-  constructor() {
-    console.log("Constructor inicio");
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("ngOnChanges inicio", changes);
-  }
-  ngOnInit(): void {
-    console.log("ngOnInit inicio");
-  }
-  ngDoCheck(): void {
-    console.log("ngDoCheck inicio");
-  }
-  ngAfterContentInit(): void {
-    console.log("ngAfterContentInit inicio");
-  }
-  ngAfterContentChecked(): void {
-    console.log("ngAfterContentChecked inicio");
-  }
-  ngAfterViewInit(): void {
-    console.log("ngAfterViewInit inicio");
-  }
-  ngAfterViewChecked(): void {
-    console.log("ngAfterViewChecked inicio");
-  }
-  ngOnDestroy(): void {
-    console.log("ngOnDestroy inicio");
-  }
+  constructor() {}
 
   addAlumon() {
     this.alumons.push({
