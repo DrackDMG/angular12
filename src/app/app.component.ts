@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { of } from "rxjs";
-import { filter, map } from "rxjs/operators";
+import { BehaviorSubject, of, Subscription } from "rxjs";
+import { delay, filter, map } from "rxjs/operators";
 
 @Component({
   selector: "app-root",
@@ -16,23 +16,38 @@ export class AppComponent {
   printData2(event: any) {
     console.log("Data from app component", event);
   }
+  video: number = 1;
 
-  ticktok = of([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  ticktok = new BehaviorSubject(this.video);
+
+  personA: Subscription;
 
   constructor() {
-    this.ticktok
-      .pipe(filter((v: any) => v[0] % 2 > 5))
+    this.personA = this.ticktok
+      .pipe(filter((a) => a % 2 === 0))
       .subscribe((item) => console.log("perosna a", item));
 
-    this.ticktok
-      .pipe(
-        map((a) => a.join("-")),
-        map((a) => a + " - " + new Date())
-      )
-      .subscribe((item) => {
-        console.log("perosna b", item);
-      });
+    this.ticktok.pipe(delay(4000)).subscribe((item) => {
+      console.log("perosna b", item);
+    });
 
     this.ticktok.subscribe((item) => console.log("perosna c", item));
+  }
+
+  modifyTictok() {
+    this.video++;
+    this.ticktok.next(this.video);
+  }
+
+  suscribeorUnsuscribe() {
+    if (this.personA.closed) {
+      this.personA = this.ticktok
+        .pipe(filter((a) => a % 2 === 0))
+        .subscribe((item) => console.log("perosna a", item));
+      console.log("Se ha suscripto");
+    } else {
+      this.personA.unsubscribe();
+      console.log("Se ha desuscripto");
+    }
   }
 }
