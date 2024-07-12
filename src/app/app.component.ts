@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { BehaviorSubject, of, Subscription } from "rxjs";
+import { BehaviorSubject, of, Subscription, Observable } from "rxjs";
 import { delay, filter, map } from "rxjs/operators";
 
 @Component({
@@ -20,6 +20,8 @@ export class AppComponent {
 
   ticktok = new BehaviorSubject(this.video);
 
+  youtube: Observable<number[]> = of([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
   personA: Subscription;
 
   constructor() {
@@ -32,6 +34,14 @@ export class AppComponent {
     });
 
     this.ticktok.subscribe((item) => console.log("perosna c", item));
+
+    this.youtube
+      .pipe(
+        map((item) => {
+          return item.map((a) => a * 2).filter((a) => a > 10);
+        })
+      )
+      .subscribe((item) => console.log("youtube", item));
   }
 
   modifyTictok() {
