@@ -33,3 +33,31 @@
   <p *ngSwitchCase="'blue'">blue</p>
   <p *ngSwitchDefault>Default</p>
 </div>
+
+<div [style.background]="color" [style.border]="' 8px solid ' + color">
+  div con estilos usando [style.background] y [style.border]
+</div>
+
+<div
+  [ngStyle]="{
+  'background': color,
+  'border': '8px solid ' + color
+}"
+>
+  div con estilos usando [ngStyle]
+</div>
+
+<p>------------------------------------------</p>
+
+<div [class.class1]="color === 'red'" [class.class2]="color === 'green'">
+  div con clases usando [ngClass]
+</div>
+
+<div
+  [ngClass]="{
+  'class1': color === 'red',
+  'class2': color === 'green'
+}"
+>
+  div con clases usando [ngClass]
+</div>
