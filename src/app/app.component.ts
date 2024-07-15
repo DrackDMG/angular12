@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnChanges, SimpleChanges } from "@angular/core";
 import { BehaviorSubject, of, Subscription, Observable } from "rxjs";
 import { delay, filter, map } from "rxjs/operators";
 
@@ -9,6 +9,8 @@ import { delay, filter, map } from "rxjs/operators";
 })
 export class AppComponent {
   title = "angular12";
+
+  estruct: boolean = true;
 
   printData(event: any) {
     console.log("Data from app component", event);

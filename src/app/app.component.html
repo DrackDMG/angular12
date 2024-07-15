@@ -29,3 +29,9 @@
 <div appDirective1 colorDirective="blue" (colorDirective2)="test($event)">
   <p>mi primer directiva de atributo</p>
 </div>
+
+<input type="checkbox" [(ngModel)]="estruct" />{{ estruct }}
+
+<div *appDirective2="estruct">
+  mi primer directiva estructural
+</div>
