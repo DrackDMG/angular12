@@ -1,4 +1,10 @@
-import { Component, OnChanges, SimpleChanges } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+} from "@angular/core";
 import { BehaviorSubject, of, Subscription, Observable } from "rxjs";
 import { delay, filter, map } from "rxjs/operators";
 
@@ -9,6 +15,9 @@ import { delay, filter, map } from "rxjs/operators";
 })
 export class AppComponent {
   title = "angular12";
+
+  @ViewChild("myDiv") myDiv: ElementRef | undefined;
+  @ViewChild("myDiv2") myDiv2: ElementRef | undefined;
 
   estruct: boolean = true;
 
@@ -65,5 +74,15 @@ export class AppComponent {
 
   test(event: any) {
     console.log("Data from app component", event);
+  }
+
+  onShowVars() {
+    console.log("myDiv", this.myDiv);
+
+    console.log("myDiv2", this.myDiv2);
+
+    this.myDiv?.nativeElement.textContent == "Hola mundo";
+
+    this.myDiv2?.nativeElement.value == "Hola mundo";
   }
 }

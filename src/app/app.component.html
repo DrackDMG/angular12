@@ -35,3 +35,12 @@
 <div *appDirective2="estruct">
   mi primer directiva estructural
 </div>
+
+<p>-----------------------------------------------</p>
+<div #myDiv>content</div>
+{{ myDiv.textContent }}
+
+<input type="text" #myDiv2 value="123" />
+{{ myDiv2.value }}
+
+<button (click)="onShowVars()">show local vars</button>
