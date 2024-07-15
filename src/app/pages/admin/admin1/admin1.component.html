@@ -1,4 +1,37 @@
 <div style="border-style: solid; border-color: yellow; margin: 5px;">
+  <button (click)="onAdd()">add</button>
+  <div *ngFor="let item of auxObserver$ |async">
+    {{ item }}
+  </div>
+  <p>{{ "uso de pipes- uppercase" | uppercase }}</p>
+  <p>{{ "uso de pipes- lowercase" | lowercase }}</p>
+  <p>{{ "uso de pipes- titlecase" | titlecase }}</p>
+  <p>{{ "uso de pipes- slice" | slice: 0:5 }}</p>
+  <p>{{ auxJson | json }}</p>
+  <p>{{ 123456789 | number }}</p>
+  <p>{{ 123456789 | number: "2.2-2" }}</p>
+  <p>{{ 0.123456789 | percent }}</p>
+  <p>{{ 0.123456789 | currency }}</p>
+  <p>{{ 0.123456789 | currency: "EUR" }}</p>
+  <p>{{ 0.123456789 | currency: "EUR": "code" }}</p>
+  <p>{{ date | date }}</p>
+  <p>{{ date | date: "short" }}</p>
+  <p>{{ date | date: "shortDate" }}</p>
+  <p>{{ date | date: "shortTime" }}</p>
+  <p>{{ date | date: "medium" }}</p>
+  <p>{{ date | date: "mediumDate" }}</p>
+  <p>{{ date | date: "mediumTime" }}</p>
+  <p>{{ date | date: "long" }}</p>
+  <p>{{ date | date: "longDate" }}</p>
+  <p>{{ date | date: "longTime" }}</p>
+  <p>{{ date | date: "full" }}</p>
+  <p>{{ date | date: "fullDate" }}</p>
+  <p>{{ date | date: "fullTime" }}</p>
+  <p>{{ date | date: "yyyy-MM-dd" }}</p>
+  <p>{{ date | date: "yyyy-MM-dd HH:mm:ss" }}</p>
+  <p>{{ date | date: "yyyy-MM-dd HH:mm:ss z" }}</p>
+  <p>{{ date | date: "yyyy-MM-dd HH:mm:ss z": "UTC" }}</p>
+
   <h2>Admin1 Component</h2>
   <app-card></app-card>
 </div>
