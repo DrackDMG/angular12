@@ -1,46 +1,4 @@
 <div style="border-style: solid; border-color: blue;">
-  <h1>Componente App</h1>
-  <app-component
-    [status]="title"
-    (sendData)="printData($event)"
-  ></app-component>
-  <div style="border-style: solid; border-color: red;">
-    <app-component2
-      name="Ricardo"
-      lastName="Garcia"
-      (showData2)="printData2($event)"
-    ></app-component2>
-  </div>
-
-  <div
-    *ngIf='title !== "123"'
-    style="border-style: solid; border-color: brown;"
-  >
-    <app-componet3 [name]="title">
-      <p>contenido dentro del app-component3 y mostrado por el ng-contend</p>
-    </app-componet3>
-  </div>
-  <input type="text" [(ngModel)]="title" />
+  <h1>App Component</h1>
+  <app-admin1></app-admin1>
 </div>
-
-<button (click)="modifyTictok()">add</button>
-<button (click)="suscribeorUnsuscribe()">unsubscribe persona a</button>
-
-<div appDirective1 colorDirective="blue" (colorDirective2)="test($event)">
-  <p>mi primer directiva de atributo</p>
-</div>
-
-<input type="checkbox" [(ngModel)]="estruct" />{{ estruct }}
-
-<div *appDirective2="estruct">
-  mi primer directiva estructural
-</div>
-
-<p>-----------------------------------------------</p>
-<div #myDiv>content</div>
-{{ myDiv.textContent }}
-
-<input type="text" #myDiv2 value="123" />
-{{ myDiv2.value }}
-
-<button (click)="onShowVars()">show local vars</button>
