@@ -3,6 +3,10 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
 import { RouterModule, Routes } from "@angular/router";
+
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import {
   NgbButtonLabel,
   NgbButtonsModule,
@@ -33,10 +37,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
     NgbButtonsModule,
     FormsModule,
+
+    MatSliderModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
