@@ -5,6 +5,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
+import { Router } from "@angular/router";
 import { BehaviorSubject, of, Subscription, Observable } from "rxjs";
 import { delay, filter, map } from "rxjs/operators";
 
@@ -15,6 +16,7 @@ import { delay, filter, map } from "rxjs/operators";
 })
 export class AppComponent {
   title = "angular12";
+  id: number = 1;
 
   @ViewChild("myDiv") myDiv: ElementRef | undefined;
   @ViewChild("myDiv2") myDiv2: ElementRef | undefined;
@@ -35,7 +37,7 @@ export class AppComponent {
 
   personA: Subscription;
 
-  constructor() {
+  constructor(private router: Router) {
     this.personA = this.ticktok
       .pipe(filter((a) => a % 2 === 0))
       .subscribe((item) => console.log("perosna a", item));
@@ -84,5 +86,10 @@ export class AppComponent {
     this.myDiv?.nativeElement.textContent == "Hola mundo";
 
     this.myDiv2?.nativeElement.value == "Hola mundo";
+  }
+  onGoView(): void {
+    this.router.navigate(["/view2", this.id, "sub", this.id], {
+      queryParams: { name: "Paco", lastName: "Martinez" },
+    });
   }
 }

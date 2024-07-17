@@ -1,5 +1,20 @@
 <div style="border-style: solid; border-color: blue; padding: 15px;">
   <h1>App Component</h1>
+
+  <p>-----------------------------------</p>
+  <button (click)="onGoView()">View2 desde el ts</button>
+  <button routerLink="view1" routerLinkActive="active-router">view1</button>
+  <button
+    routerLink="view2/5/sub/8"
+    [queryParams]="{name: 'Lalo', lastName:'Perez'}"
+    routerLinkActive="active-router"
+  >
+    view2
+  </button>
+  <button routerLink="view1/view1sub1" routerLinkActive="active-router">
+    view1/subview1
+  </button>
+  <router-outlet></router-outlet>
   <app-admin2></app-admin2>
   <app-admin1></app-admin1>
 </div>
