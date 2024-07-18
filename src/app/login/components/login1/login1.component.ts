@@ -28,11 +28,7 @@ export class Login1Component implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-    this.publicationsService.list().subscribe((data) => {
-      console.log("publicationsService -> ", data);
-    });
-  }
+  ngOnInit(): void {}
 
   setData(): void {
     let aux = this.utilsService.getData();
