@@ -2,6 +2,7 @@ import { UtilsService } from "./../../services/utils.service";
 import { SingletonService } from "./../../services/singleton.service";
 import { Component, OnInit } from "@angular/core";
 import { NormalService } from "../../services/normal.service";
+import { PublicationsService } from "../../services/publications.service";
 
 @Component({
   selector: "app-login1",
@@ -12,7 +13,8 @@ export class Login1Component implements OnInit {
   constructor(
     private normalService: NormalService,
     private singletonService: SingletonService,
-    private utilsService: UtilsService
+    private utilsService: UtilsService,
+    private publicationsService: PublicationsService
   ) {
     console.log("getService desde login1", this.normalService.getData());
     this.normalService.setData([6, 7, 8, 9, 10]);
@@ -26,7 +28,11 @@ export class Login1Component implements OnInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.publicationsService.list().subscribe((data) => {
+      console.log("publicationsService -> ", data);
+    });
+  }
 
   setData(): void {
     let aux = this.utilsService.getData();

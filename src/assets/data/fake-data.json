@@ -1,0 +1,25 @@
+{
+  "publications": {
+    "p001": {
+      "idUser": 2,
+      "description": "This is a wall",
+      "date": "2020-01-01",
+      "imageURL": "https://firebase/img.jpg",
+      "userPhotoURL": "https://firebase/user1.jpg"
+    },
+    "p002": {
+      "idUser": 3,
+      "description": "This is another wall",
+      "date": "2020-01-02",
+      "imageURL": "https://firebase/img2.jpg",
+      "userPhotoURL": "https://firebase/user2.jpg"
+    },
+    "p003": {
+      "idUser": 4,
+      "description": "This is a wall",
+      "date": "2020-01-03",
+      "imageURL": "https://firebase/img3.jpg",
+      "userPhotoURL": "https://firebase/user3.jpg"
+    }
+  }
+}

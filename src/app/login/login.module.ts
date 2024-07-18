@@ -6,6 +6,8 @@ import { NormalService } from "./services/normal.service";
 import { Login1Component } from "./components/login1/login1.component";
 import { Login2Component } from "./components/login2/login2.component";
 import { UtilsService } from "./services/utils.service";
+import { PublicationsService } from "./services/publications.service";
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   {
@@ -17,6 +19,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [LoginComponent, Login1Component, Login2Component],
   imports: [CommonModule, RouterModule.forChild(routes)],
-  providers: [NormalService, UtilsService, UtilsService],
+  providers: [NormalService, UtilsService, UtilsService, PublicationsService],
 })
 export class LoginModule {}
