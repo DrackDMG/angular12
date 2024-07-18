@@ -13,6 +13,7 @@ import {
   NgbModule,
 } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
+import { SingletonService } from "./login/services/singleton.service";
 
 // npx -p node@18 -p firebase-tools@13.13.3 firebase <command>
 // https://face-angular-course.web.app/
@@ -46,7 +47,7 @@ const routes: Routes = [
     MatSliderModule,
     MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [SingletonService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

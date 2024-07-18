@@ -1,3 +1,4 @@
+import { SingletonService } from "./../../services/singleton.service";
 import { Component, OnInit } from "@angular/core";
 import { NormalService } from "../../services/normal.service";
 
@@ -7,7 +8,10 @@ import { NormalService } from "../../services/normal.service";
   styleUrls: ["./login2.component.scss"],
 })
 export class Login2Component implements OnInit {
-  constructor(private normalService: NormalService) {
+  constructor(
+    private normalService: NormalService,
+    private singletonService: SingletonService
+  ) {
     console.log("getService desde login2", this.normalService.getData());
     this.normalService.setData([11, 12, 13, 14, 15]);
     console.log(
@@ -17,4 +21,12 @@ export class Login2Component implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  setData(): void {
+    this.singletonService.setMessage("Data from login2");
+    console.log(
+      "setMessage desde login2 -> ",
+      this.singletonService.getMessage()
+    );
+  }
 }
