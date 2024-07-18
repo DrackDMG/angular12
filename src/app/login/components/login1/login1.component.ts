@@ -1,3 +1,4 @@
+import { UtilsService } from "./../../services/utils.service";
 import { SingletonService } from "./../../services/singleton.service";
 import { Component, OnInit } from "@angular/core";
 import { NormalService } from "../../services/normal.service";
@@ -10,7 +11,8 @@ import { NormalService } from "../../services/normal.service";
 export class Login1Component implements OnInit {
   constructor(
     private normalService: NormalService,
-    private singletonService: SingletonService
+    private singletonService: SingletonService,
+    private utilsService: UtilsService
   ) {
     console.log("getService desde login1", this.normalService.getData());
     this.normalService.setData([6, 7, 8, 9, 10]);
@@ -25,4 +27,10 @@ export class Login1Component implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  setData(): void {
+    let aux = this.utilsService.getData();
+    this.utilsService.setData(aux + 1);
+    console.log("setData desde login1 -> ", this.utilsService.getData());
+  }
 }
