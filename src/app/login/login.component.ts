@@ -7,12 +7,18 @@ import { PublicationsService } from "./services/publications.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
+  publicatoins: any = null;
+
   constructor(private publicationsService: PublicationsService) {}
 
   ngOnInit(): void {
     this.publicationsService.list().subscribe((data) => {
       console.log("data desde login -> ", data);
     });
+  }
+
+  onSubmit(formtemplate: any) {
+    console.log("formtemplate -> ", formtemplate);
   }
 
   create(): void {
@@ -51,6 +57,7 @@ export class LoginComponent implements OnInit {
 
   get(): void {
     this.publicationsService.list().subscribe((data) => {
+      this.publicatoins = data;
       console.log("data desde login -> ", data);
     });
   }

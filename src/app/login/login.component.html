@@ -2,11 +2,23 @@
   class="container d-flex align-items-center justify-content-center"
   style="height: 100vh;"
 >
-  <button (click)="create()">crear</button>
-  <button (click)="update()">actualizar</button>
-  <button (click)="delete()">borrar</button>
-  <button (click)="get()">leer</button>
+  <form #formTemplate="ngForm" (ngSubmit)="onSubmit(formTemplate)">
+    <div
+      class="d-flex align-items-center justify-content-center flex-column gap-3 m-3"
+    >
+      <h3>TEMPLATE FORM</h3>
+      <input type="text" name="aa" ngModel />
+      <input type="text" name="bb" ngModel />
+      <input type="text" name="cc" ngModel />
+      <button type="submit">submit</button>
+    </div>
+  </form>
   <div>
+    <button (click)="create()">crear</button>
+    <button (click)="update()">actualizar</button>
+    <button (click)="delete()">borrar</button>
+    <button (click)="get()">leer</button>
+    <p *ngIf="publicatoins !== null">{{ publicatoins.p001.description }}</p>
     <app-login1></app-login1>
     <app-login2></app-login2>
     <button routerLink="/pages/home">home</button>
