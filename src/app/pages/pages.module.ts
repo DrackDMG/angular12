@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { PagesComponent } from "./pages.component";
 import { RouterModule, Routes } from "@angular/router";
+import { NormalService } from "../login/services/normal.service";
 
 const routes: Routes = [
   {
@@ -23,5 +24,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [PagesComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
+  providers: [NormalService],
 })
 export class PagesModule {}
