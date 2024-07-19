@@ -24,9 +24,15 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.fromReactive = this.formBuilder.group({
-      name: "",
-      lastName: ["", Validators.required],
-      date: "",
+      name: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(10),
+        ],
+      ],
+      lastName: "",
     });
   }
 
@@ -39,6 +45,11 @@ export class LoginComponent implements OnInit {
       console.log("value -> ", value);
     });
   }
+
+  getValue(value: any) {
+    return this.fromReactive.get(value);
+  }
+
   onShowAll(): void {
     console.log("reactiveForms -> ", this.fromReactive.value);
   }
