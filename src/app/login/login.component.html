@@ -1,46 +1,25 @@
 <div
-  class="container d-flex align-items-center justify-content-center"
+  class="container d-flex align-items-center justify-content-center flex-column"
   style="height: 100vh;"
 >
-  <form #formTemplate="ngForm" (ngSubmit)="onSubmit(formTemplate)">
-    <div
-      class="d-flex align-items-center justify-content-center flex-column gap-3 m-3"
-    >
-      <h3>TEMPLATE FORM</h3>
-      <input type="text" name="aa" ngModel />
-      <input type="text" name="bb" ngModel />
-      <input type="text" name="cc" ngModel />
-      <button type="submit">submit</button>
+  <p>validacion de formulario de plantillas</p>
+  <input
+    type="text"
+    required
+    minlength="5"
+    maxlength="10"
+    [(ngModel)]="name"
+    #nameLocal="ngModel"
+  />
+  <div>{{ nameLocal }}</div>
+
+  <div *ngIf="nameLocal.invalid && (nameLocal.dirty || nameLocal.touched)">
+    <div *ngIf="nameLocal.errors?.required">El campo es requerido</div>
+    <div *ngIf="nameLocal.errors?.minlength">
+      El campo debe tener al menos 5 caracteres
     </div>
-  </form>
-
-  <div
-    class="d-flex align-items-center justify-content-center flex-column gap-3 m-3"
-  >
-    <h3>REACTIVE FORM</h3>
-    <input type="text" [formControl]="name" />
-    <button (click)="onShow()">onSubmit</button>
-  </div>
-
-  <div
-    [formGroup]="fromReactive"
-    class="d-flex align-items-center justify-content-center flex-column gap-3 m-3"
-  >
-    <h3>REACTIVE FORM</h3>
-    <input type="text" formControlName="name" />
-    <input type="text" formControlName="lastName" />
-    <input type="text" formControlName="date" />
-    <button (click)="onShowAll()">onSubmit</button>
-  </div>
-
-  <div>
-    <button (click)="create()">crear</button>
-    <button (click)="update()">actualizar</button>
-    <button (click)="delete()">borrar</button>
-    <button (click)="get()">leer</button>
-    <p *ngIf="publicatoins !== null">{{ publicatoins.p001.description }}</p>
-    <app-login1></app-login1>
-    <app-login2></app-login2>
-    <button routerLink="/pages/home">home</button>
+    <div *ngIf="nameLocal.errors?.maxlength">
+      El campo debe tener maximo 20 caracteres
+    </div>
   </div>
 </div>

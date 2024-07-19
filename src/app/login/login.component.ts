@@ -15,7 +15,7 @@ import {
 export class LoginComponent implements OnInit {
   publicatoins: any = null;
 
-  name = new FormControl("");
+  name: string = "";
 
   fromReactive: FormGroup;
 
@@ -35,20 +35,12 @@ export class LoginComponent implements OnInit {
       console.log("data desde login -> ", data);
     });
 
-    this.name.valueChanges.subscribe((value) => {
-      console.log("value -> ", value);
-    });
-
     this.fromReactive.valueChanges.subscribe((value) => {
       console.log("value -> ", value);
     });
   }
   onShowAll(): void {
     console.log("reactiveForms -> ", this.fromReactive.value);
-  }
-
-  onShow(): void {
-    console.log("name -> ", this.name.value);
   }
 
   onSubmit(formtemplate: any) {
