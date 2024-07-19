@@ -1,5 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { PublicationsService } from "./services/publications.service";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -9,12 +15,40 @@ import { PublicationsService } from "./services/publications.service";
 export class LoginComponent implements OnInit {
   publicatoins: any = null;
 
-  constructor(private publicationsService: PublicationsService) {}
+  name = new FormControl("");
+
+  fromReactive: FormGroup;
+
+  constructor(
+    private publicationsService: PublicationsService,
+    private formBuilder: FormBuilder
+  ) {
+    this.fromReactive = this.formBuilder.group({
+      name: "",
+      lastName: ["", Validators.required],
+      date: "",
+    });
+  }
 
   ngOnInit(): void {
     this.publicationsService.list().subscribe((data) => {
       console.log("data desde login -> ", data);
     });
+
+    this.name.valueChanges.subscribe((value) => {
+      console.log("value -> ", value);
+    });
+
+    this.fromReactive.valueChanges.subscribe((value) => {
+      console.log("value -> ", value);
+    });
+  }
+  onShowAll(): void {
+    console.log("reactiveForms -> ", this.fromReactive.value);
+  }
+
+  onShow(): void {
+    console.log("name -> ", this.name.value);
   }
 
   onSubmit(formtemplate: any) {
